@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BS Task5</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+    <style>
+      .container {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+form {
+    text-align: left;
+}
+
+.form-control {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+}
+input[type="radio"] {
+            margin-right: 5px;
+        }
+
+button {
+    padding: 10px 20px;
+    background-color: #f59415;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #f59415;
+}
+    </style>
+    <script>
+      function validateForm() {
+    let valid = true;
+
+    const firstname = document.getElementById('firstname').value;
+    const lastname = document.getElementById('lastname').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const address = document.getElementById('address').value;
+    const city = document.getElementById('city').value;
+
+    const firstnameError = document.getElementById('firstnameError');
+    const lastnameError = document.getElementById('lastnameError');
+    const emailError = document.getElementById('emailError');
+    const passwordError = document.getElementById('passwordError');
+    const addressError = document.getElementById('addressError');
+    const cityError = document.getElementById('cityError');
+
+    firstnameError.textContent = '';
+    lastnameError.textContent = '';
+    emailError.textContent = '';
+    passwordError.textContent = '';
+    addressError.textContent = '';
+    cityError.textContent = '';
+
+    if (firstname === '') {
+        firstnameError.textContent = 'Please suppply your first name';
+        valid = false;
+    }
+
+    if (lastname === '') {
+        lastnameError.textContent = 'Please suppply your last name';
+        valid = false;
+    }
+    if (email === '') {
+        emailError.textContent = 'Please supply your email address';
+        valid = false;
+    } else if (!isValidEmail(email)) {
+        emailError.textContent = 'Invalid email format';
+        valid = false;
+    }
+    if (password === '') {
+        passwordError.textContent = 'Please supply your phone number';
+        valid = false;
+    } 
+
+    if (address === '') {
+        addressError.textContent = 'Please supply your address';
+        valid = false;
+    } 
+
+    if (city === '') {
+        cityError.textContent = 'Please supply your city';
+        valid = false;
+    } 
+
+    return valid;
+}
+
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+    </script>
+</head>
+<body>
+  <div class="container">
+      <h2>Registration Form</h2>
+      <form id="registrationForm" onsubmit="return validateForm()">
+          <div class="form-control">
+              <label for="firstname"><i class="fas fa-user"></i> First Name</label>
+              <input type="text" id="firstname" name="firstname" style="width: 400px;" placeholder="First Name">
+              <span class="error" id="firstnameError"></span>
+          </div>
+          <div class="form-control">
+            <label for="lastname"><i class="fas fa-user"></i> Last Name</label>
+            <input type="text" id="lastname" name="lastname" style="width: 400px;" placeholder="Last Name">
+            <span class="error" id="lastnameError"></span>
+        </div>
+          <div class="form-control">
+              <label for="email"><i class="fas fa-envelope"></i> Email</label>
+              <input type="email" id="email" name="email" style="width: 400px;" placeholder="E-mail Address">
+              <span class="error" id="emailError"></span>
+          </div>
+          <div class="form-control">
+              <label for="password"><i class="fas fa-phone"></i> Phone</label>
+              <input type="password" id="password" name="password" style="width: 400px;" placeholder="(845)555-1212">
+              <span class="error" id="passwordError"></span>
+          </div>
+          <div class="form-control">
+            <label for="address"><i class="fas fa-home"></i> Address</label>
+            <input type="address" id="address" name="address" style="width: 400px;" placeholder="Address">
+            <span class="error" id="addressError"></span>
+        </div>
+        <div class="form-control">
+          <label for="city"><i class="fas fa-home"></i> City</label>
+          <input type="city" id="city" name="city" style="width: 400px;" placeholder="City">
+          <span class="error" id="cityError"></span>
+        </div>
+        <div class="form-control">
+          <label for="state"><i class="fas fa-bars"></i> State</label>
+          <input type="state" id="state" name="state" style="width: 400px;" placeholder="Please select your state ">
+          <span class="error" id="stateError"></span>
+        </div>
+        <div class="form-control">
+          <label for="project description><i class="fas fa-pencil"></i> Project Description</label>
+          <input type="project description" id="project description" name="project description" style="width: 400px;" placeholder="Project description ">
+        </div>
+        <button type="submit" class="btn" style="font-size: 18px">Send <i class="fa fa-paper-plane" style="font-size:18px;color:white;"></i></button>
+      </form>
+  </div>
+</body>
+</html>

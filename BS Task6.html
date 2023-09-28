@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BS Task6</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+
+    .container {
+      width: 400px;
+      height: auto; 
+      margin: 0 auto;
+      padding: 30px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    hr {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border: 0;
+      border-top: 1px solid #ccc;
+    }
+
+    a {
+      color: #0a1925;
+      text-decoration: none;
+    }
+
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #e42b2b;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .button {
+      background-color: #f0121e;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      padding: 8px 10px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 2px 2px;
+      cursor: pointer;
+    }
+
+    .container.cancel {
+      background-color: #e1e7e111;
+      color: #f0121e;
+      height: 25px;
+      width: 400px;
+    }
+
+    div.right {
+      float: right;
+    }
+    .error-message {
+      color: #f00;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <form id="myForm">
+    <div class="container">
+      <hr>
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" name="name" id="name">
+      <span class="error-message" id="name-error"></span>
+      <label for="email"><b>Email</b></label>
+      <input type="email" placeholder="Enter Email" name="email" id="email">
+      <span class="error-message" id="email-error"></span>
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password" id="password">
+      <span class="error-message" id="password-error"></span>
+      <label for="Hobbies"><b>Hobbies</b></label>
+      <input type="text" placeholder="Enter Hobbies" name="hobbies" id="hobbies">
+      <span class="error-message" id="hobbies-error"></span>
+      <hr>
+      <button type="button" class="Loginbtn" onclick="validateForm()" style="background-color: #f0121e; padding: 8px 10px; width: 400px; border: none; color: white;" ><strong>Submit</strong></button>
+    </div>
+  </form>
+
+  <script>
+    function validateForm() {
+      var name = document.getElementById("name").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var hobbies = document.getElementById("hobbies").value;
+      var nameError = document.getElementById("name-error");
+      var emailError = document.getElementById("email-error");
+      var passwordError = document.getElementById("password-error");
+      var hobbiesError = document.getElementById("hobbies-error");
+      var isValid = true;
+
+      nameError.textContent = "";
+      emailError.textContent = "";
+      passwordError.textContent = "";
+      hobbiesError.textContent = "";
+
+      if (name.trim() === "") {
+        nameError.textContent = "Name is required";
+        isValid = false;
+      }
+
+      if (email.trim() === "") {
+        emailError.textContent = "Email is required";
+        isValid = false;
+      }
+
+      if (password.trim() === "") {
+        passwordError.textContent = "Password is required";
+        isValid = false;
+      }
+
+      if (hobbies.trim() === "") {
+        hobbiesError.textContent = "Hobbies are required";
+        isValid = false;
+      }
+
+      if (isValid) {
+        document.getElementById("myForm").submit();
+      }
+    }
+  </script>
+</body>
+</html>

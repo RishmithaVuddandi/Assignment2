@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Task5</title>
+    <style>
+        .error {
+            color: red;
+            text-align: center;
+        }
+        .input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+    </style>
+</head>
+<body>
+    <form id="registration-form" style="max-width:500px;margin:auto">
+        <tr>
+        <th style="width:25%" align="right">Name:</th>
+        <td>
+        <div class="input-container">
+        <input type="text" id="first-name" name="first-name">
+        </td>
+        <div id="first-name-error" class="error"></div>
+        </div>
+        </tr>
+
+        <label for="email">Email:</label>
+        <div class="input-container">
+        <input type="text" id="email" name="email">
+        <div id="email-error" class="error"></div>
+        </div>
+
+        <label for="website">Website:</label>
+        <div class="input-container">
+        <input type="text" id="website" name="website">
+        <div id="website-error" class="error"></div>
+        </div>
+
+        <label for="message">Message:</label>
+        <div class="input-container">
+        <textarea id="message" name="message" style="height: 50px;"></textarea>
+        <div id="message-error" class="error"></div>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("registration-form").addEventListener("submit", function(event) {
+            const firstName = document.getElementById("first-name").value;
+            const city = document.getElementById("website").value;
+            const projectDescription = document.getElementById("message").value;
+            let hasError = false;
+
+            if (firstName.trim() === "") {
+                document.getElementById("first-name-error").textContent = "This field is required";
+                hasError = true;
+            } else {
+                document.getElementById("first-name-error").textContent = "";
+            }
+
+            if (firstName.trim() === "") {
+                document.getElementById("email-error").textContent = "A valid email address is required";
+                hasError = true;
+            } else {
+                document.getElementById("email-error").textContent = "";
+            }
+
+            if (city.trim() === "") {
+                document.getElementById("website-error").textContent = "A valid URL is required";
+                hasError = true;
+            } else {
+                document.getElementById("website-error").textContent = "";
+            }
+
+            if (projectDescription.trim() === "") {
+                document.getElementById("message-error").textContent = "This field is required";
+                hasError = true;
+            } else {
+                document.getElementById("message-error").textContent = "";
+            }
+
+            if (hasError) {
+                event.preventDefault(); 
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Write a JavaScript program to display current date and time:</h3>
+<form>
+    <input type=button value='Show Date' onclick="show_date();">
+    <div id=display2></div>  
+</form>
+
+<p id="date-display"></p>
+
+<script>
+function show_date() { 
+var in_date = new Date();
+var str=in_date.getDate() +'/'+(in_date.getMonth()+1)+'/'+in_date.getFullYear()
+document.getElementById('display2').innerHTML=str
+}
+</script>
+
+<button type="button"
+onclick="document.getElementById('date_time_button').innerHTML = Date()">
+Show Time.</button>
+
+<p id="date_time_button"></p>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+#train {
+  position: relative;
+  animation: mymove 8s infinite;
+  animation-play-state: paused;
+}
+
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: 200px;}
+}
+</style>
+</head>
+<body>
+
+<img id="train" src="https://js.cx/clipart/train.gif">
+<h2 style="color: blue;">Click the following buttons to Play/Pause the animation:</h2>
+<button onclick="myPlayFunction()">Play</button>
+<button onclick="myPauseFunction()">Pause</button>
+
+<script>
+const train = document.getElementById("train"); 
+let animationState = "paused"; 
+
+function myPlayFunction() {
+  if (animationState === "paused") {
+    train.style.animationPlayState = "running"; 
+    animationState = "running";
+  }
+}
+
+function myPauseFunction() {
+  if (animationState === "running") {
+    train.style.animationPlayState = "paused"; 
+    animationState = "paused";
+  }
+}
+</script>
+
+<div id="myDIV"></div>
+
+</body>
+</html>
